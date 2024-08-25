@@ -132,6 +132,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
+                  <NavLink to="/storyinsights" className="hover:bg-purple-900 px-4 py-2 block rounded">
+                  Story Insights
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/contact" className="hover:bg-purple-900 px-4 py-2 block rounded">
                     Contact Us
                   </NavLink>

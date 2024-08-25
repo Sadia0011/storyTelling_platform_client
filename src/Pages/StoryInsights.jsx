@@ -17,7 +17,7 @@ const StoryInsights = () => {
         setStories(response.data);
     };
     fetchStories();
-    // setLoading(false)
+    setLoading(false)
   }, []);
 
   useEffect(() => {

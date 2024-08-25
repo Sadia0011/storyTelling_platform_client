@@ -2,21 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StoryCard from '../Components/StoryCard';
 import useAxiosPublic from '../useAxiosPublic';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 const Home = () => {
   const navigate = useNavigate();
   const [stories, setStories] = useState([]);
+  const [Loading,setLoading]=useState(true)
   const axios=useAxiosPublic()  
   useEffect(() => {
     axios.get('/api/stories/getStories')
       .then((response) => {
         setStories(response.data);
+        setLoading(false)
       })
       .catch((error) => {
         console.error('Error fetching stories:', error);
       });
   }, []);
-
+  if (Loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <ClipLoader color="#4A90E2" loading={Loading} size={50} />
+      </div>
+    );
+  }
   return (
     <div 
       className="relative min-h-screen overflow-hidden "
